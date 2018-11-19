@@ -8,6 +8,14 @@ export class Dialog {
 
   constructor(public callbackId: string, public title: string) {}
 
+  updateCallbackId = (cb: (callbackId: string) => string): void => {
+    this.callbackId = cb(this.callbackId);
+  };
+
+  updateTitle = (cb: (title: string) => string): void => {
+    this.title = cb(this.title);
+  };
+
   setState = (value: string): void => {
     this.state = value;
   };

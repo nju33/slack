@@ -21,6 +21,6 @@ export const useAttachment = (message: Message) => (callbackId: string) => {
     setFooter: attachment.setFooter,
     setFooterIcon: attachment.setFooterIcon,
     setTs: attachment.setTs,
-    useField,
+    useField: useField(attachment),
   };
 };

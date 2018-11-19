@@ -1,4 +1,5 @@
 import {Message, Dialog} from '../structs';
+import {useElement} from './use-element';
 
 export const useDialog = (message: Message) => (
   triggerId: string,
@@ -11,8 +12,11 @@ export const useDialog = (message: Message) => (
   message.setDialog(dialog);
 
   return {
+    updateCallbackId: dialog.updateCallbackId,
+    updateTitle: dialog.updateTitle,
     setState: dialog.setState,
     setSubmitLabel: dialog.setSubmitLabel,
     setNotifyOnCancel: dialog.setNotifyOnCancel,
+    useElement: useElement(dialog),
   };
 };

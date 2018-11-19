@@ -1,3 +1,4 @@
+import snakecaseKeys from 'snakecase-keys';
 import {Dialog} from './dialog';
 import {Attachment} from '.';
 
@@ -5,7 +6,6 @@ export type ParseType = 'full' | 'none';
 
 export class Message {
   channel?: string;
-  color?: string;
   asUser?: boolean;
   iconEmoji?: string;
   iconUrl?: string;
@@ -25,16 +25,22 @@ export class Message {
 
   constructor(public text: string) {}
 
+  export(snakecaseKey: boolean = false): any {
+    const json = JSON.parse(JSON.stringify(this));
+
+    if (!snakecaseKey) {
+      return json;
+    }
+
+    return snakecaseKeys(json);
+  }
+
   updateText = (cb: (text: string) => string): void => {
     this.text = cb(this.text);
   };
 
   setChannel = (value: string): void => {
     this.channel = value;
-  };
-
-  setColor = (value: string): void => {
-    this.color = value;
   };
 
   setAsUser = (value: boolean): void => {

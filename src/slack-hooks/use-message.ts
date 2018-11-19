@@ -1,4 +1,6 @@
 import {Message} from './../structs';
+import {useAttachment} from './use-attachment';
+import {useDialog} from './use-dialog';
 
 export const useMessage = (text: string) => {
   const message = new Message(text);
@@ -7,7 +9,6 @@ export const useMessage = (text: string) => {
     message,
     updateText: message.updateText,
     setChannel: message.setChannel,
-    setColor: message.setColor,
     setAsUser: message.setAsUser,
     setIconEmoji: message.setIconEmoji,
     setIconUrl: message.setIconUrl,
@@ -19,5 +20,7 @@ export const useMessage = (text: string) => {
     setUnfurlLinks: message.setUnfurlLinks,
     setUnfurlMedia: message.setUnfurlMedia,
     setUsername: message.setUsername,
+    useAttachment: useAttachment(message),
+    useDialog: useDialog(message),
   };
 };

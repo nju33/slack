@@ -10,13 +10,45 @@ describe('useElement', () => {
   });
 
   test('returns', () => {
-    const {setState, setSubmitLabel, setNotifyOnCancel} = dialog();
+    const {
+      updateCallbackId,
+      updateTitle,
+      setState,
+      setSubmitLabel,
+      setNotifyOnCancel,
+      useElement,
+    } = dialog();
 
+    expect(updateCallbackId).toBeInstanceOf(Function);
+    expect(updateTitle).toBeInstanceOf(Function);
     expect(setState).toBeInstanceOf(Function);
     expect(setSubmitLabel).toBeInstanceOf(Function);
     expect(setNotifyOnCancel).toBeInstanceOf(Function);
+    expect(useElement).toBeInstanceOf(Function);
 
     expect(message.dialog).toBeInstanceOf(Dialog);
+  });
+
+  test('updateCallbackId', () => {
+    const {updateCallbackId} = dialog();
+
+    // tslint:disable-next-line:early-exit
+    if (message.dialog !== undefined) {
+      expect(message.dialog.callbackId).toBe('callbackId');
+      updateCallbackId(callbackId => `updated-${callbackId}`);
+      expect(message.dialog.callbackId).toBe('updated-callbackId');
+    }
+  });
+
+  test('updateTitle', () => {
+    const {updateTitle} = dialog();
+
+    // tslint:disable-next-line:early-exit
+    if (message.dialog !== undefined) {
+      expect(message.dialog.title).toBe('title');
+      updateTitle(title => `updated-${title}`);
+      expect(message.dialog.title).toBe('updated-title');
+    }
   });
 
   test('setState', () => {

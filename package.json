@@ -42,7 +42,7 @@
     "@types/lodash": "4.14.118",
     "jest": "23.6.0",
     "prettier": "1.15.2",
-    "renovate-config-nju33": "^0.0.1",
+    "renovate-config-nju33": "0.0.1",
     "ts-jest": "23.10.4",
     "ts-node": "7.0.1",
     "tsconfig-paths": "3.7.0",

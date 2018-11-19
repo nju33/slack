@@ -11,12 +11,12 @@ yarn add @nju33/slack
 ```ts
 import {useMessage} from '@nju33/slack';
 
-const {message, updateText, useAsUser, useAttachment} = useMessage('text');
+const {message, updateText, setAsUser, useAttachment} = useMessage('text');
 
 updateText(text => `update-${text}`);
-useAsUser(true);
-const {useTitle} = useAttachment('callbackId');
-useTitle('title of the attachment');
+setAsUser(true);
+const {setTitle} = useAttachment('callbackId');
+setTitle('title of the attachment');
 
 const json = message.export(true);
 //

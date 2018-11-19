@@ -1,0 +1,16 @@
+
+{
+  "extends": "./tsconfig.base",
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/__tests__/**/*",
+    "src/**/*test*"
+  ],
+  "compilerOptions": {
+    "module": "esnext",
+    "declaration": true,
+    "outDir": "./dist/types",
+  }
+}

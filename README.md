@@ -25,6 +25,7 @@ const json = message.export(true);
 //   as_user: true,
 //   attachments: [
 //     {
+//       callback_id: 'callbackId',
 //       title: 'title of the attachment'
 //     }
 //   ]

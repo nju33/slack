@@ -1,4 +1,7 @@
 import {DialogElement, Dialog} from '../structs';
+import {useSelectElement} from './use-select-element';
+import {useTextElement} from './use-text-element';
+import {useTextareaElement} from './use-textarea-element';
 
 /**
  * @param dialog dialog
@@ -16,11 +19,8 @@ export const useElement = (dialog: Dialog) => (
     updateLabel: element.updateLabel,
     updateName: element.updateName,
     updateValue: element.updateValue,
-    setType: element.setType,
-    setSubtype: element.setSubtype,
-    setOptional: element.setOptional,
-    setHint: element.setHint,
-    setMinLength: element.setMinLength,
-    setMaxLength: element.setMaxLength,
+    useTextElement: useTextElement(element),
+    useTextareaElement: useTextareaElement(element),
+    useSelectElement: useSelectElement(element),
   };
 };

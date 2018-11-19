@@ -156,23 +156,70 @@ describe('useMessage', () => {
     const types = ['text', 'textarea', 'select'];
 
     const dialogElements = [0, 1, 2].map(i => {
-      const values = {
+      const values: any = {
         type: types[i] as 'text' | 'textarea' | 'select',
         label: `label${i}`,
         name: `name${i}`,
         value: `value${i}`,
       };
 
-      const {setType} = useElement(values.label, values.name, values.value);
-      setType(values.type);
+      switch (values.type) {
+        case 'text': {
+          values.subtype = 'email';
+          break;
+        }
+        case 'textarea': {
+          values.maxLength = 1000;
+          break;
+        }
+        case 'select': {
+          values.options = [0, 1, 2].map(j => {
+            return {
+              label: `label${j}`,
+              value: `value${j}`,
+            };
+          });
+          break;
+        }
+        default:
+      }
+
+      const {useTextElement, useTextareaElement, useSelectElement} = useElement(
+        values.label,
+        values.name,
+        values.value,
+      );
+
+      switch (values.type) {
+        case 'text': {
+          const {setSubtype} = useTextElement();
+          setSubtype(values.subtype);
+          break;
+        }
+        case 'textarea': {
+          const {setMaxLength} = useTextareaElement();
+          setMaxLength(values.maxLength);
+          break;
+        }
+        case 'select': {
+          const {useOption} = useSelectElement();
+          [0, 1, 2].map(j => {
+            const option = values.options[j]
+            useOption(option.label, option.value);
+          });
+          break;
+        }
+        default:
+      }
 
       return values;
     });
 
-    expect(message.text).toBe('text');
-    expect(message.channel).toBe('channel');
-    expect(message.triggerId).toBe('triggerId');
-    expect(message.dialog).toMatchObject({
+    const exported = message.export();
+    expect(exported.text).toBe('text');
+    expect(exported.channel).toBe('channel');
+    expect(exported.triggerId).toBe('triggerId');
+    expect(exported.dialog).toMatchObject({
       callbackId: 'callbackId',
       title: 'title',
       submitLabel: 'submitLabel',

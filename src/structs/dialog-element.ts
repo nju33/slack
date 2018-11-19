@@ -1,3 +1,6 @@
+import {DialogOption} from './dialog-option';
+import {DialogOptionGroup} from './dialog-option-group';
+
 export type DialogElementType = 'text' | 'textarea' | 'select';
 
 export type DialogElementSubtype = 'email' | 'number' | 'tel' | 'url';
@@ -8,16 +11,6 @@ export type DialogSelectElementDataSource =
   | 'conversations'
   | 'external'
   | 'static';
-
-export interface DialogSelectElementOption {
-  label: string;
-  value: string;
-}
-
-export interface DialogSelectElementOptionGroup {
-  label: string;
-  options: DialogSelectElementOption[];
-}
 
 export class DialogElement {
   type?: DialogElementType;
@@ -31,9 +24,9 @@ export class DialogElement {
 
   dataSource?: DialogSelectElementDataSource;
   minQueryLength?: number;
-  selectedOptions?: DialogSelectElementOption[];
-  options?: DialogSelectElementOption[];
-  optionGroups?: DialogSelectElementOptionGroup[];
+  selectedOptions?: DialogOption[];
+  options?: DialogOption[];
+  optionGroups?: DialogOptionGroup[];
 
   /**
    *
@@ -109,6 +102,12 @@ export class DialogElement {
     }
   };
 
+  setPlaceholder = (value: string): void => {
+    if (!this.isSelectType()) {
+      this.placeholder = value;
+    }
+  };
+
   setDataSource = (value: DialogSelectElementDataSource) => {
     if (this.isSelectType()) {
       this.dataSource = value;
@@ -121,21 +120,27 @@ export class DialogElement {
     }
   };
 
-  setSelectedOptions = (value: DialogSelectElementOption[]) => {
-    if (this.isSelectType()) {
-      this.selectedOptions = value;
+  addSelectedOption = (option: DialogOption) => {
+    if (!Array.isArray(this.selectedOptions)) {
+      this.selectedOptions = [];
     }
+
+    this.selectedOptions.push(option);
   };
 
-  setOptions = (value: DialogSelectElementOption[]) => {
-    if (this.isSelectType()) {
-      this.options = value;
+  addOption = (option: DialogOption) => {
+    if (!Array.isArray(this.options)) {
+      this.options = [];
     }
+
+    this.options.push(option);
   };
 
-  setOptionGroups = (value: DialogSelectElementOptionGroup[]) => {
-    if (this.isSelectType()) {
-      this.optionGroups = value;
+  addOptionGroup = (optionGroup: DialogOptionGroup) => {
+    if (!Array.isArray(this.optionGroups)) {
+      this.optionGroups = [];
     }
+
+    this.optionGroups.push(optionGroup);
   };
 }

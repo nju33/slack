@@ -18,7 +18,7 @@ setAsUser(true);
 const {setTitle} = useAttachment('callbackId');
 setTitle('title of the attachment');
 
-const json = message.export(true);
+const json = message.export();
 //
 // {
 //   title: 'update-text',

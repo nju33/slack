@@ -1,5 +1,7 @@
 import {Message, Dialog} from '../structs';
-import {useElement} from './use-element';
+import {useTextElement} from './use-text-element';
+import {useTextareaElement} from './use-textarea-element';
+import {useSelectElement} from './use-select-element';
 
 export const useDialog = (message: Message) => (
   triggerId: string,
@@ -17,6 +19,8 @@ export const useDialog = (message: Message) => (
     setState: dialog.setState,
     setSubmitLabel: dialog.setSubmitLabel,
     setNotifyOnCancel: dialog.setNotifyOnCancel,
-    useElement: useElement(dialog),
+    useTextElement: useTextElement(dialog),
+    useTextareaElement: useTextareaElement(dialog),
+    useSelectElement: useSelectElement(dialog),
   };
 };

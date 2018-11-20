@@ -25,14 +25,14 @@ export class Message {
 
   constructor(public text: string) {}
 
-  export(snakecaseKey: boolean = false): any {
+  export(snakecaseKey: boolean = true): any {
     const json = JSON.parse(JSON.stringify(this));
 
-    if (!snakecaseKey) {
-      return json;
+    if (snakecaseKey) {
+      return snakecaseKeys(json);
     }
 
-    return snakecaseKeys(json);
+    return json;
   }
 
   updateText = (cb: (text: string) => string): void => {

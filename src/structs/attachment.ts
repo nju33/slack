@@ -1,6 +1,11 @@
 import {AttachmentField} from './attachment-field';
+import {ActionButton} from './action-button';
+import {ActionSelect} from './action-select';
+import {OptionLabel} from '../type-aliases';
 
-export class Attachment {
+type ActionElement<P extends OptionLabel> = ActionButton | ActionSelect<P>;
+
+export class Attachment<P extends OptionLabel = 'text'> {
   fallback?: string;
   color?: string;
   pretext?: string;
@@ -16,6 +21,8 @@ export class Attachment {
   footer?: string;
   footerIcon?: string;
   ts?: number;
+  attachmentType?: string;
+  actions?: (ActionElement<P>)[];
 
   constructor(public callbackId: string) {}
 
@@ -75,11 +82,23 @@ export class Attachment {
     this.ts = value;
   };
 
+  setAttachmentType = (value: string): void => {
+    this.attachmentType = value;
+  };
+
   addField = (field: AttachmentField): void => {
     if (!Array.isArray(this.fields)) {
       this.fields = [];
     }
 
     this.fields.push(field);
+  };
+
+  addAction = (actionElement: ActionElement<P>) => {
+    if (!Array.isArray(this.actions)) {
+      this.actions = [];
+    }
+
+    this.actions.push(actionElement);
   };
 }

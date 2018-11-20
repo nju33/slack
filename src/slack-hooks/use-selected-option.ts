@@ -1,15 +1,14 @@
-import {DialogElement, DialogOption} from '../structs';
+import {SelectedOption} from './../structs/selected-option';
+import {ActionSelect, DialogSelectElement} from '../structs';
 
-export const useSelectedOption = (dialog: DialogElement) => (
-  label: string,
-  value: string,
-) => {
-  const option = new DialogOption(label, value);
+export const useSelectedOption = (
+  select: ActionSelect<any> | DialogSelectElement<any>,
+) => (value: string | number) => {
+  const selectedOption = new SelectedOption(value);
 
-  dialog.addSelectedOption(option);
+  select.addSelectedOption(selectedOption);
 
   return {
-    updateLabel: option.updateLabel,
-    updateValue: option.updateValue,
+    updateValue: selectedOption.updateValue,
   };
 };

@@ -143,136 +143,72 @@ describe('useMessage', () => {
   });
 
   test('dialog', () => {
-    const {message, setChannel, useDialog} = aMessage();
-    setChannel('channel');
+    const answer = {
+      text: 'text',
+      channel: 'channel',
+      triggerId: 'triggerId',
+      dialog: {
+        callbackId: 'callbackId',
+        title: 'title',
+        submitLabel: 'submitLabel',
+        elements: [
+          {
+            type: 'text',
+            label: 'label',
+            name: 'name',
+            value: 'value',
+          },
+        ],
+      },
+    };
 
-    const {setSubmitLabel, useElement} = useDialog(
-      'triggerId',
-      'callbackId',
-      'title',
+    const {message, setChannel, useDialog} = aMessage();
+    setChannel(answer.channel);
+
+    const {setSubmitLabel, useTextElement} = useDialog(
+      answer.triggerId,
+      answer.dialog.callbackId,
+      answer.dialog.title,
     );
     setSubmitLabel('submitLabel');
 
-    const types = ['text', 'textarea', 'select'];
+    const e0 = answer.dialog.elements[0];
+    useTextElement(e0.label, e0.name, e0.value);
 
-    const dialogElements = [0, 1, 2].map(i => {
-      const values: any = {
-        type: types[i] as 'text' | 'textarea' | 'select',
-        label: `label${i}`,
-        name: `name${i}`,
-        value: `value${i}`,
-      };
-
-      switch (values.type) {
-        case 'text': {
-          values.subtype = 'email';
-          break;
-        }
-        case 'textarea': {
-          values.maxLength = 1000;
-          break;
-        }
-        case 'select': {
-          values.options = [0, 1, 2].map(j => {
-            return {
-              label: `label${j}`,
-              value: `value${j}`,
-            };
-          });
-          break;
-        }
-        default:
-      }
-
-      const {useTextElement, useTextareaElement, useSelectElement} = useElement(
-        values.label,
-        values.name,
-        values.value,
-      );
-
-      switch (values.type) {
-        case 'text': {
-          const {setSubtype} = useTextElement();
-          setSubtype(values.subtype);
-          break;
-        }
-        case 'textarea': {
-          const {setMaxLength} = useTextareaElement();
-          setMaxLength(values.maxLength);
-          break;
-        }
-        case 'select': {
-          const {useOption} = useSelectElement();
-          [0, 1, 2].map(j => {
-            const option = values.options[j]
-            useOption(option.label, option.value);
-          });
-          break;
-        }
-        default:
-      }
-
-      return values;
-    });
-
-    const exported = message.export();
-    expect(exported.text).toBe('text');
-    expect(exported.channel).toBe('channel');
-    expect(exported.triggerId).toBe('triggerId');
-    expect(exported.dialog).toMatchObject({
-      callbackId: 'callbackId',
-      title: 'title',
-      submitLabel: 'submitLabel',
-      elements: dialogElements,
-    });
+    const json = message.export(false);
+    expect(json).toMatchObject(answer);
   });
 
   test('attachment', () => {
-    const {message, setChannel, setAsUser, useAttachment} = aMessage();
-    setChannel('channel');
-    setAsUser(true);
+    const answer = {
+      text: 'text',
+      attachments: [
+        {
+          callbackId: 'callbackId1',
+          text: 'foo',
+        },
+        {
+          callbackId: 'callbackId2',
+          text: 'bar',
+        },
+      ],
+    };
 
-    const attachments = [0, 1].map(i => {
-      const attachment = {
-        callbackId: `callbackId${i}`,
-        pretext: `pretext${i}`,
-        text: `text${i}`,
-        fields: [0, 1, 2].map(j => {
-          const field: any = {
-            title: `title${j}`,
-            value: `value${j}`,
-          };
-
-          if (i % 2 === 1) {
-            field.short = true;
-          }
-
-          return field;
-        }),
-      };
-      const {setText, setPretext, useField} = useAttachment(
-        attachment.callbackId,
-      );
-      setPretext(attachment.pretext);
-      setText(attachment.text);
-      attachment.fields.map((field: any) => {
-        const {setShort} = useField(field.title, field.value);
-        if (field.short !== undefined) {
-          setShort(field.short);
-        }
-      });
-
-      return attachment;
+    const {message, useAttachment} = aMessage();
+    ['foo', 'bar'].map((text, i) => {
+      const {setText} = useAttachment(`callbackId${i + 1}`);
+      setText(text);
     });
 
-    const exported = message.export();
+    const json = message.export(false);
+    expect(json).toMatchObject(answer);
+  });
 
-    expect(exported.text).toBe('text');
-    expect(exported.channel).toBe('channel');
-    expect(exported.asUser).toBeTruthy();
-    expect(exported.attachments).toMatchObject(attachments);
+  test('export', () => {
+    const {message, setAsUser} = aMessage();
+    setAsUser(true);
 
-    const exportedInSnakecaseKeys = message.export(true);
-    expect(exportedInSnakecaseKeys).toHaveProperty('as_user');
+    expect(message.export()).toHaveProperty('as_user');
+    expect(message.export(false)).toHaveProperty('asUser');
   });
 });

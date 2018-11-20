@@ -1,16 +1,21 @@
-import {DialogElement} from '../structs';
+import {Dialog, DialogSelectElement} from '../structs';
 import {useSelectedOption} from './use-selected-option';
 import {useOption} from './use-option';
 import {useOptionGroup} from './use-option-group';
 
-export const useSelectElement = (element: DialogElement) => () => {
-  element.setType('select');
+export const useSelectElement = (dialog: Dialog) => (
+  label: string,
+  name: string,
+) => {
+  const element = new DialogSelectElement(label, name);
+
+  dialog.addElement(element);
 
   return {
     setDataSource: element.setDataSource,
     setMinQueryLength: element.setMinQueryLength,
     useSelectedOption: useSelectedOption(element),
-    useOption: useOption(element),
-    useOptionGroup: useOptionGroup(element),
+    useOption: useOption(element, 'label'),
+    useOptionGroup: useOptionGroup(element, 'label'),
   };
 };

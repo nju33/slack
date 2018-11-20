@@ -1,0 +1,1 @@
+export type OptionDataSource = 'users' | 'channels' | 'conversations' | 'external' | 'static';

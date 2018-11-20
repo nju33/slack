@@ -1,5 +1,10 @@
+import {ActionConfirm} from './action-confirm';
+import {ButtonStyle} from './../type-aliases';
+
 export class ActionButton {
   readonly type = 'button';
+  style?: ButtonStyle;
+  confirm?: ActionConfirm;
 
   constructor(
     public name: string,
@@ -17,5 +22,13 @@ export class ActionButton {
 
   updateValue = (cb: (value: string | number) => string | number): void => {
     this.value = cb(this.value);
+  };
+
+  setStyle = (value: ButtonStyle): void => {
+    this.style = value;
+  };
+
+  setConfirm = (value: ActionConfirm): void => {
+    this.confirm = value;
   };
 }

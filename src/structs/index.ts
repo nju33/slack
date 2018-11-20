@@ -1,4 +1,5 @@
 export * from './action-button';
+export * from './action-confirm';
 export * from './action-select';
 export * from './attachment-field';
 export * from './attachment';

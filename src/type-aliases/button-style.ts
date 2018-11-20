@@ -1,0 +1,1 @@
+export type ButtonStyle = 'primary' | 'danger' | 'default';

@@ -1,4 +1,5 @@
 import {Attachment, ActionButton} from '../structs';
+import {useConfirm} from './use-confirm';
 
 export const useButton = (attachment: Attachment) => (
   name: string,
@@ -13,5 +14,7 @@ export const useButton = (attachment: Attachment) => (
     updateName: button.updateName,
     updateText: button.updateText,
     updateValue: button.updateValue,
+    setStyle: button.setStyle,
+    useConfirm: useConfirm(button),
   };
 };

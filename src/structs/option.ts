@@ -19,7 +19,7 @@ export class Option<P extends OptionLabel> {
     this.label = cb(this.label);
   };
 
-  updateValue = (cb: (value: string | number) => string): void => {
+  updateValue = (cb: (value: string | number) => string | number): void => {
     this.value = cb(this.value);
   };
 }

@@ -5,6 +5,7 @@ import {Attachment} from '.';
 export type ParseType = 'full' | 'none';
 
 export class Message {
+  token?: string;
   channel?: string;
   asUser?: boolean;
   iconEmoji?: string;
@@ -37,6 +38,10 @@ export class Message {
 
   updateText = (cb: (text: string) => string): void => {
     this.text = cb(this.text);
+  };
+
+  setToken = (value: string): void => {
+    this.token = value;
   };
 
   setChannel = (value: string): void => {

@@ -12,6 +12,7 @@ export const useSelectElement = (dialog: Dialog) => (
   dialog.addElement(element);
 
   return {
+    setOptional: element.setOptional,
     setDataSource: element.setDataSource,
     setMinQueryLength: element.setMinQueryLength,
     useSelectedOption: useSelectedOption(element),

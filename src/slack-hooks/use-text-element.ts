@@ -13,6 +13,7 @@ export const useTextElement = (dialog: Dialog) => (
     updateLabel: element.updateLabel,
     updateName: element.updateName,
     updateValue: element.updateValue,
+    setOptional: element.setOptional,
     setSubtype: element.setSubtype,
     setHint: element.setHint,
     setMinLength: element.setMinLength,

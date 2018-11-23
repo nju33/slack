@@ -13,6 +13,7 @@ export const useTextareaElement = (dialog: Dialog) => (
     updateLabel: element.updateLabel,
     updateName: element.updateName,
     updateValue: element.updateValue,
+    setOptional: element.setOptional,
     setSubtype: element.subtype,
     setHint: element.setHint,
     setMinLength: element.setMinLength,

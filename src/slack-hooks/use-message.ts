@@ -10,6 +10,7 @@ export const useMessage = (text: string) => {
     updateText: message.updateText,
     setToken: message.setToken,
     setChannel: message.setChannel,
+    setTs: message.setTs,
     setAsUser: message.setAsUser,
     setIconEmoji: message.setIconEmoji,
     setIconUrl: message.setIconUrl,

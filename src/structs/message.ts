@@ -7,6 +7,7 @@ export type ParseType = 'full' | 'none';
 export class Message {
   token?: string;
   channel?: string;
+  ts?: string;
   asUser?: boolean;
   iconEmoji?: string;
   iconUrl?: string;
@@ -46,6 +47,10 @@ export class Message {
 
   setChannel = (value: string): void => {
     this.channel = value;
+  };
+
+  setTs = (value: string): void => {
+    this.ts = value;
   };
 
   setAsUser = (value: boolean): void => {

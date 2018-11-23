@@ -10,6 +10,7 @@ describe('useMessage', () => {
       updateText,
       setToken,
       setChannel,
+      setTs,
       setAsUser,
       setIconEmoji,
       setIconUrl,
@@ -26,6 +27,7 @@ describe('useMessage', () => {
     expect(message).toBeInstanceOf(Message);
     expect(updateText).toBeInstanceOf(Function);
     expect(setToken).toBeInstanceOf(Function);
+    expect(setTs).toBeInstanceOf(Function);
     expect(setChannel).toBeInstanceOf(Function);
     expect(setAsUser).toBeInstanceOf(Function);
     expect(setIconEmoji).toBeInstanceOf(Function);

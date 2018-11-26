@@ -1,12 +1,13 @@
-import {Message} from '../structs';
+import {Chat} from '../structs';
 import {useAttachment} from './use-attachment';
 
 describe('useAttachment', () => {
-  let message: Message;
-  const attachment = () => useAttachment(message)('callbackId');
+  let chat: Chat;
+  const attachment = () => useAttachment(chat)('callbackId');
 
   beforeEach(() => {
-    message = new Message('');
+    chat = new Chat();
+    chat.setText('text');
   });
 
   test('returns', () => {
@@ -50,7 +51,7 @@ describe('useAttachment', () => {
     expect(useButton).toBeInstanceOf(Function);
     expect(useSelect).toBeInstanceOf(Function);
 
-    expect(Array.isArray(message.attachments)).toBeTruthy();
+    expect(Array.isArray(chat.attachments)).toBeTruthy();
   });
 
   test('build actions', () => {
@@ -159,7 +160,7 @@ describe('useAttachment', () => {
       setDataSource('users');
     })();
 
-    const result = message.export(false);
+    const result = chat.export(false);
     expect(result.attachments).toMatchObject(attachments);
   });
 });

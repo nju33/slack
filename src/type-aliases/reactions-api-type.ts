@@ -1,0 +1,1 @@
+export type ReactionsAPIType = 'get' | 'list' | 'add' | 'remove';

@@ -1,12 +1,12 @@
-import {Message, Attachment} from '../structs';
+import {Attachment, Chat} from '../structs';
 import {useField} from './use-field';
 import {useButton} from './use-button';
 import {useSelect} from './use-select';
 
-export const useAttachment = (message: Message) => (callbackId: string) => {
+export const useAttachment = (chat: Chat) => (callbackId: string) => {
   const attachment = new Attachment(callbackId);
 
-  message.addAttachment(attachment);
+  chat.addAttachment(attachment);
 
   return {
     setFallback: attachment.setFallback,

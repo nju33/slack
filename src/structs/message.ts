@@ -1,10 +1,12 @@
-import snakecaseKeys from 'snakecase-keys';
+import {applyMixins} from './apply-mixins';
 import {Dialog} from './dialog';
 import {Attachment} from '.';
+import {Exportable} from './exportable';
 
 export type ParseType = 'full' | 'none';
 
-export class Message {
+// tslint:disable-next-line:no-namespace
+export class Message implements Exportable {
   token?: string;
   channel?: string;
   ts?: string;
@@ -27,15 +29,7 @@ export class Message {
 
   constructor(public text: string) {}
 
-  export(snakecaseKey: boolean = true): any {
-    const json = JSON.parse(JSON.stringify(this));
-
-    if (snakecaseKey) {
-      return snakecaseKeys(json);
-    }
-
-    return json;
-  }
+  export!: Exportable['export'];
 
   updateText = (cb: (text: string) => string): void => {
     this.text = cb(this.text);
@@ -116,3 +110,5 @@ export class Message {
     this.attachments.push(attachment);
   };
 }
+
+applyMixins(Message, [Exportable]);

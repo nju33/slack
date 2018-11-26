@@ -1,16 +1,11 @@
-import {Message, Dialog} from '../structs';
 import {useDialog} from './use-dialog';
 
 describe('useDialog', () => {
-  let message: Message;
-  const dialog = () => useDialog(message)('triggerId', 'callbackId', 'title');
-
-  beforeEach(() => {
-    message = new Message('');
-  });
+  const dialog = () => useDialog('triggerId', 'callbackId', 'title');
 
   test('returns', () => {
     const {
+      json,
       updateCallbackId,
       updateTitle,
       setState,
@@ -21,6 +16,7 @@ describe('useDialog', () => {
       useTextareaElement,
     } = dialog();
 
+    expect(json).toBeInstanceOf(Function);
     expect(updateCallbackId).toBeInstanceOf(Function);
     expect(updateTitle).toBeInstanceOf(Function);
     expect(setState).toBeInstanceOf(Function);
@@ -30,62 +26,47 @@ describe('useDialog', () => {
     expect(useTextElement).toBeInstanceOf(Function);
     expect(useTextareaElement).toBeInstanceOf(Function);
 
-    expect(message.dialog).toBeInstanceOf(Dialog);
+    expect(json(false).triggerId).toBe('triggerId');
   });
 
   test('updateCallbackId', () => {
-    const {updateCallbackId} = dialog();
+    const {json, updateCallbackId} = dialog();
 
-    // tslint:disable-next-line:early-exit
-    if (message.dialog !== undefined) {
-      expect(message.dialog.callbackId).toBe('callbackId');
-      updateCallbackId(callbackId => `updated-${callbackId}`);
-      expect(message.dialog.callbackId).toBe('updated-callbackId');
-    }
+    expect(json(false).dialog.callbackId).toBe('callbackId');
+    updateCallbackId(callbackId => `updated-${callbackId}`);
+    expect(json(false).dialog.callbackId).toBe('updated-callbackId');
   });
 
   test('updateTitle', () => {
-    const {updateTitle} = dialog();
+    const {json, updateTitle} = dialog();
 
-    // tslint:disable-next-line:early-exit
-    if (message.dialog !== undefined) {
-      expect(message.dialog.title).toBe('title');
-      updateTitle(title => `updated-${title}`);
-      expect(message.dialog.title).toBe('updated-title');
-    }
+    expect(json(false).dialog.title).toBe('title');
+    updateTitle(title => `updated-${title}`);
+    expect(json(false).dialog.title).toBe('updated-title');
   });
 
   test('setState', () => {
-    const {setState} = dialog();
+    const {json, setState} = dialog();
 
-    // tslint:disable-next-line:early-exit
-    if (message.dialog !== undefined) {
-      expect(message.dialog.state).toBeUndefined();
-      setState('state');
-      expect(message.dialog.state).toBe('state');
-    }
+    expect(json(false).dialog.state).toBeUndefined();
+    setState('state');
+    expect(json(false).dialog.state).toBe('state');
   });
 
   test('setSubmitLabel', () => {
-    const {setSubmitLabel} = dialog();
+    const {json, setSubmitLabel} = dialog();
 
-    // tslint:disable-next-line:early-exit
-    if (message.dialog !== undefined) {
-      expect(message.dialog.submitLabel).toBeUndefined();
-      setSubmitLabel('submitLabel');
-      expect(message.dialog.submitLabel).toBe('submitLabel');
-    }
+    expect(json(false).dialog.submitLabel).toBeUndefined();
+    setSubmitLabel('submitLabel');
+    expect(json(false).dialog.submitLabel).toBe('submitLabel');
   });
 
   test('setNotifyOnCancel', () => {
-    const {setNotifyOnCancel} = dialog();
+    const {json, setNotifyOnCancel} = dialog();
 
-    // tslint:disable-next-line:early-exit
-    if (message.dialog !== undefined) {
-      expect(message.dialog.notifyOnCancel).toBeUndefined();
-      setNotifyOnCancel(true);
-      expect(message.dialog.notifyOnCancel).toBeTruthy();
-    }
+    expect(json(false).dialog.notifyOnCancel).toBeUndefined();
+    setNotifyOnCancel(true);
+    expect(json(false).dialog.notifyOnCancel).toBeTruthy();
   });
 
   test('build', () => {
@@ -163,7 +144,12 @@ describe('useDialog', () => {
       ],
     };
 
-    const {useTextElement, useTextareaElement, useSelectElement} = dialog();
+    const {
+      json,
+      useTextElement,
+      useTextareaElement,
+      useSelectElement,
+    } = dialog();
 
     (() => {
       const e0 = aDialog.elements[0] as Record<
@@ -218,8 +204,6 @@ describe('useDialog', () => {
       setDataSource('users');
     })();
 
-    const json = message.export(false);
-
-    expect(json.dialog).toMatchObject(aDialog);
+    expect(json(false).dialog).toMatchObject(aDialog);
   });
 });

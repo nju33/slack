@@ -1,19 +1,17 @@
-import {Message, Dialog} from '../structs';
+import {Dialog} from '../structs';
 import {useTextElement} from './use-text-element';
 import {useTextareaElement} from './use-textarea-element';
 import {useSelectElement} from './use-select-element';
 
-export const useDialog = (message: Message) => (
+export const useDialog = (
   triggerId: string,
   callbackId: string,
   title: string,
 ) => {
-  const dialog = new Dialog(callbackId, title);
-
-  message.setTriggerId(triggerId);
-  message.setDialog(dialog);
+  const dialog = new Dialog(triggerId, callbackId, title);
 
   return {
+    json: dialog.export.bind(dialog),
     updateCallbackId: dialog.updateCallbackId,
     updateTitle: dialog.updateTitle,
     setState: dialog.setState,

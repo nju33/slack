@@ -1,41 +1,56 @@
 import {DialogElement} from './dialog-element';
+import {Exportable} from './exportable';
+import {applyMixins} from './apply-mixins';
 
-export class Dialog {
-  state?: string;
-  submitLabel?: string;
-  notifyOnCancel?: boolean;
-  elements?: DialogElement[];
-
-  constructor(public callbackId: string, public title: string) {}
-
-  updateCallbackId = (cb: (callbackId: string) => string): void => {
-    this.callbackId = cb(this.callbackId);
+export class Dialog implements Exportable {
+  dialog: {
+    callbackId: string;
+    title: string;
+    state?: string;
+    submitLabel?: string;
+    notifyOnCancel?: boolean;
+    elements?: DialogElement[];
   };
 
-  updateTitle = (cb: (title: string) => string): void => {
-    this.title = cb(this.title);
+  constructor(public triggerId: string, callbackId: string, title: string) {
+    this.dialog = {
+      callbackId,
+      title,
+    };
+  }
+
+  export!: Exportable['export'];
+
+  readonly updateCallbackId = (cb: (callbackId: string) => string): void => {
+    this.dialog.callbackId = cb(this.dialog.callbackId);
   };
 
-  setState = (value: string): void => {
-    this.state = value;
+  readonly updateTitle = (cb: (title: string) => string): void => {
+    this.dialog.title = cb(this.dialog.title);
+  };
+
+  readonly setState = (value: string): void => {
+    this.dialog.state = value;
   };
 
   /**
    * defaults `submit`
    */
-  setSubmitLabel = (value: string): void => {
-    this.submitLabel = value;
+  readonly setSubmitLabel = (value: string): void => {
+    this.dialog.submitLabel = value;
   };
 
-  setNotifyOnCancel = (value: boolean): void => {
-    this.notifyOnCancel = value;
+  readonly setNotifyOnCancel = (value: boolean): void => {
+    this.dialog.notifyOnCancel = value;
   };
 
-  addElement = (element: DialogElement): void => {
-    if (!Array.isArray(this.elements)) {
-      this.elements = [];
+  readonly addElement = (element: DialogElement): void => {
+    if (!Array.isArray(this.dialog.elements)) {
+      this.dialog.elements = [];
     }
 
-    this.elements.push(element);
+    this.dialog.elements.push(element);
   };
 }
+
+applyMixins(Dialog, [Exportable]);

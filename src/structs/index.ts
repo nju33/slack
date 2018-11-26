@@ -8,7 +8,6 @@ export * from './dialog-text-element';
 export * from './dialog-textarea-element';
 export * from './dialog';
 export * from './chat';
-// export * from './message';
 export * from './option-group';
 export * from './option';
 export * from './page-gettable';

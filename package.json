@@ -38,7 +38,7 @@
     "@geekcojp/tslint-config": "0.2.1",
     "@types/axios": "0.14.0",
     "@types/camelcase-keys": "4.0.0",
-    "@types/jest": "23.3.10",
+    "@types/jest": "23.3.11",
     "@types/lodash": "4.14.119",
     "jest": "23.6.0",
     "prettier": "1.15.3",

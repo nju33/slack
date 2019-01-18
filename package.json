@@ -39,7 +39,7 @@
     "@types/axios": "0.14.0",
     "@types/camelcase-keys": "4.0.0",
     "@types/jest": "23.3.12",
-    "@types/lodash": "4.14.119",
+    "@types/lodash": "4.14.120",
     "jest": "23.6.0",
     "prettier": "1.15.3",
     "renovate-config-nju33": "0.0.1",

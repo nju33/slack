@@ -30,6 +30,7 @@ describe('useAttachment', () => {
       useField,
       useButton,
       useSelect,
+      useListener,
     } = attachment();
 
     expect(setFallback).toBeInstanceOf(Function);
@@ -50,6 +51,7 @@ describe('useAttachment', () => {
     expect(useField).toBeInstanceOf(Function);
     expect(useButton).toBeInstanceOf(Function);
     expect(useSelect).toBeInstanceOf(Function);
+    expect(useListener).toBeInstanceOf(Function);
 
     expect(Array.isArray(chat.attachments)).toBeTruthy();
   });

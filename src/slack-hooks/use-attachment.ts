@@ -2,6 +2,7 @@ import {Attachment, Chat} from '../structs';
 import {useField} from './use-field';
 import {useButton} from './use-button';
 import {useSelect} from './use-select';
+import {useListener} from './use-listener';
 
 export const useAttachment = (chat: Chat) => (callbackId: string) => {
   const attachment = new Attachment(callbackId);
@@ -27,5 +28,6 @@ export const useAttachment = (chat: Chat) => (callbackId: string) => {
     useField: useField(attachment),
     useButton: useButton(attachment),
     useSelect: useSelect(attachment),
+    useListener: useListener(attachment),
   };
 };

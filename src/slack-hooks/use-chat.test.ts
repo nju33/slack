@@ -96,4 +96,32 @@ describe('useMessage', () => {
 
     expect(json(false)).toMatchObject(answer);
   });
+
+  test('handler', () => {
+    const callbackId = 'callbackId';
+    const {useAttachment} = useChat('postMessage', 'text');
+
+    const {useListener} = useAttachment(callbackId);
+
+    const callback = jest.fn();
+    const callback2 = jest.fn();
+    useListener('interactive_message', 'button', callback)({
+      type: 'interactive_message',
+      actions: [
+        {type: 'button'}
+      ],
+      callbackId
+    });
+
+    useListener('interactive_message', 'button', callback)({
+      type: 'interactive_message',
+      actions: [
+        {type: 'button'}
+      ],
+      callbackId: 'callbackXox'
+    });
+
+    expect(callback.mock.calls.length).toBe(1);
+    expect(callback2.mock.calls.length).toBe(0);
+  });
 });

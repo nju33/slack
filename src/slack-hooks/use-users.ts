@@ -1,3 +1,5 @@
+import {Users} from '../structs/users';
+
 // tslint:disable-next-line:no-namespace
 namespace UseUsers {
   export function fn(): {
@@ -9,6 +11,8 @@ namespace UseUsers {
   };
 
   export function fn() {
+    const users = new Users();
+
     return {
       json: users.export.bind(users),
       setName: users.setName,

@@ -4,7 +4,6 @@ import {Exportable} from './exportable';
 
 export type ParseType = 'full' | 'none';
 
-// tslint:disable-next-line:no-namespace
 export class Chat implements Exportable {
   token?: string;
   text?: string;

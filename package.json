@@ -34,12 +34,16 @@
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "@types/node": "^11.0.0"
+  },
   "devDependencies": {
     "@geekcojp/tslint-config": "0.2.1",
     "@types/axios": "0.14.0",
     "@types/camelcase-keys": "4.0.0",
     "@types/jest": "23.3.9",
     "@types/lodash": "4.14.118",
+    "@types/node": "^11.9.6",
     "jest": "23.6.0",
     "prettier": "1.15.2",
     "renovate-config-nju33": "0.0.1",

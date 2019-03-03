@@ -177,12 +177,12 @@
     tslint-config-prettier "^1.13.0"
     tslint-xo "^0.8.0"
 
-"@nju33/prettier@^0.0.6":
+"@nju33/prettier@0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@nju33/prettier/-/prettier-0.0.6.tgz#bd5d632293b9219d926ef708ab26dccbbf3de83d"
   integrity sha512-uSD8ofg+r6DLqT06rwuA0eb9tkosjKJYztgs4LBmDYxMfvI+R/6KrCorM+XsIG0UNO7NvaxHV0gI7H9akB9qSQ==
 
-"@nju33/tslint@^0.0.6":
+"@nju33/tslint@0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@nju33/tslint/-/tslint-0.0.6.tgz#bc2894a8182970646ba4318820f9875ba85b7684"
   integrity sha512-GtSdWtEmScgAHaiDFqs5jdz5zkm6YRJ+6B7Ne6oqohDgiaeYeOzFAh5qrzpp4gNdQPK5uPii4XHdXfR1zGMr0g==
@@ -285,7 +285,7 @@
     "@types/glob" "*"
     "@types/node" "*"
 
-"@types/snakecase-keys@^2.1.0":
+"@types/snakecase-keys@2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@types/snakecase-keys/-/snakecase-keys-2.1.0.tgz#d64fe4793a2a2b143644415d299c69748e911e66"
   integrity sha512-yoDyTa4SBpcENbp+X5voveHWKGJUBBqYeF3Ua5jsatVgyO6ZVCBTDKm5JByb3KIOZJ6AuBpkwHMdIFL/MTfFMg==

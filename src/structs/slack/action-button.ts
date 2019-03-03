@@ -3,6 +3,7 @@ import {ButtonStyle} from '../../type-aliases';
 
 export class ActionButton {
   readonly type = 'button';
+  url?: string;
   style?: ButtonStyle;
   confirm?: ActionConfirm;
 
@@ -22,6 +23,10 @@ export class ActionButton {
 
   updateValue = (cb: (value: string | number) => string | number): void => {
     this.value = cb(this.value);
+  };
+
+  setURL = (value: string): void => {
+    this.url = value;
   };
 
   setStyle = (value: ButtonStyle): void => {

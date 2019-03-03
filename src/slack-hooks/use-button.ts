@@ -14,6 +14,7 @@ export const useButton = (attachment: Attachment) => (
     updateName: button.updateName,
     updateText: button.updateText,
     updateValue: button.updateValue,
+    setURL: button.setURL,
     setStyle: button.setStyle,
     useConfirm: useConfirm(button),
   };

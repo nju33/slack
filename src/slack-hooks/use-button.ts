@@ -1,4 +1,4 @@
-import {Attachment, ActionButton} from '../structs';
+import {Attachment, ActionButton} from '../structs/slack';
 import {useConfirm} from './use-confirm';
 
 export const useButton = (attachment: Attachment) => (

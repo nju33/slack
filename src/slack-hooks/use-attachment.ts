@@ -1,12 +1,13 @@
-import {Message, Attachment} from '../structs';
+import {Attachment, Chat} from '../structs/slack';
 import {useField} from './use-field';
 import {useButton} from './use-button';
 import {useSelect} from './use-select';
+import {useListener} from './use-listener';
 
-export const useAttachment = (message: Message) => (callbackId: string) => {
+export const useAttachment = (chat: Chat) => (callbackId: string) => {
   const attachment = new Attachment(callbackId);
 
-  message.addAttachment(attachment);
+  chat.addAttachment(attachment);
 
   return {
     setFallback: attachment.setFallback,
@@ -27,5 +28,6 @@ export const useAttachment = (message: Message) => (callbackId: string) => {
     useField: useField(attachment),
     useButton: useButton(attachment),
     useSelect: useSelect(attachment),
+    useListener: useListener(attachment),
   };
 };

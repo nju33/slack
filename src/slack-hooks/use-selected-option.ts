@@ -1,5 +1,5 @@
-import {SelectedOption} from './../structs/selected-option';
-import {ActionSelect, DialogSelectElement} from '../structs';
+import {SelectedOption} from '../structs/slack/selected-option';
+import {ActionSelect, DialogSelectElement} from '../structs/slack';
 
 export const useSelectedOption = (
   select: ActionSelect<any> | DialogSelectElement<any>,

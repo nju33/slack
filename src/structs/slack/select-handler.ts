@@ -1,4 +1,4 @@
-import {OptionLabel} from '../type-aliases';
+import {OptionLabel} from '../../type-aliases';
 import {SelectedOption} from './selected-option';
 import {Option} from './option';
 import {OptionGroup} from './option-group';

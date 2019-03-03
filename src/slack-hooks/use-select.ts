@@ -1,4 +1,4 @@
-import {Attachment, ActionSelect} from '../structs';
+import {Attachment, ActionSelect} from '../structs/slack';
 import {useOptionGroup} from './use-option-group';
 import {useOption} from './use-option';
 import {useSelectedOption} from './use-selected-option';

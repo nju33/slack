@@ -1,6 +1,6 @@
-import {DialogSelectElement, ActionSelect} from '../structs';
+import {DialogSelectElement, ActionSelect} from '../structs/slack';
 import {useOption} from './use-option';
-import {OptionGroup} from '../structs/option-group';
+import {OptionGroup} from '../structs/slack/option-group';
 import {OptionLabel} from '../type-aliases';
 
 export const useOptionGroup = <P extends OptionLabel>(

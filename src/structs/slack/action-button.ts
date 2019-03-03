@@ -1,5 +1,5 @@
 import {ActionConfirm} from './action-confirm';
-import {ButtonStyle} from './../type-aliases';
+import {ButtonStyle} from '../../type-aliases';
 
 export class ActionButton {
   readonly type = 'button';

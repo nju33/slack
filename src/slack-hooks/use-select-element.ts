@@ -1,4 +1,4 @@
-import {Dialog, DialogSelectElement} from '../structs';
+import {Dialog, DialogSelectElement} from '../structs/slack';
 import {useSelectedOption} from './use-selected-option';
 import {useOption} from './use-option';
 import {useOptionGroup} from './use-option-group';

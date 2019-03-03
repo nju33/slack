@@ -1,30 +1,27 @@
-import {DialogElement} from './dialog-element';
-import {
-  DialogElementType,
-  OptionDataSource,
-  OptionLabel,
-} from '../type-aliases';
+import {OptionLabel, OptionDataSource} from '../../type-aliases';
 import {SelectHandler} from './select-handler';
 
 type H<P extends OptionLabel> = SelectHandler<P>;
-
-export class DialogSelectElement<P extends OptionLabel = 'label'>
-  extends DialogElement
-  implements H<P> {
-  type = 'select' as DialogElementType;
-
+export class ActionSelect<P extends OptionLabel> implements H<P> {
+  readonly type = 'select';
   dataSource?: OptionDataSource;
-  minQueryLength?: number;
+
   selectedOptions: H<P>['selectedOptions'];
   options: H<P>['options'];
   optionGroups: H<P>['optionGroups'];
 
-  setDataSource = (value: OptionDataSource) => {
-    this.dataSource = value;
+  constructor(public name: string, public text: string) {}
+
+  updateName = (cb: (name: string) => string): void => {
+    this.name = cb(this.name);
   };
 
-  setMinQueryLength = (value: number) => {
-    this.minQueryLength = value;
+  updateText = (cb: (text: string) => string): void => {
+    this.text = cb(this.text);
+  };
+
+  setDataSource = (value: OptionDataSource): void => {
+    this.dataSource = value;
   };
 
   addSelectedOption: H<P>['addSelectedOption'] = value => {

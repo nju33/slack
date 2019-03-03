@@ -12,7 +12,7 @@ export class OptionGroup<
   options?: O[];
 
   constructor(propName: P, propValue: string) {
-    this[propName] = propValue;
+    (this as any)[propName] = propValue;
   }
 
   updateText = (cb: (text: Text<P>) => Text<P>): void => {

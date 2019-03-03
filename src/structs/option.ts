@@ -8,7 +8,7 @@ export class Option<P extends OptionLabel> {
   label!: Label<P>;
 
   constructor(propName: P, propValue: string, public value: string | number) {
-    this[propName] = propValue;
+    (this as any)[propName] = propValue;
   }
 
   updateText = (cb: (text: Text<P>) => Text<P>): void => {

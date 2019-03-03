@@ -26,15 +26,16 @@ describe('ServeoTransfer', () => {
         expect(body).toMatchObject(transferObject);
         return true;
       })
-      .reply(200);
+      .reply(200, transferObject);
 
     const serveoTransfer = new ServeoTransfer(subdomainName, path);
     expect(serveoTransfer.origin).toBe(origin);
     expect(serveoTransfer.requestPath).toBe(url.resolve(origin, path));
 
-    const result = await serveoTransfer.ok();
-    expect(result).toBeTruthy();
-    await serveoTransfer.transfer(transferObject);
+    const status = await serveoTransfer.ok();
+    expect(status).toBeTruthy();
+    const result = await serveoTransfer.transfer(transferObject);
+    expect(result).toMatchObject(transferObject);
   });
 
   test('ok is falsy', async () => {

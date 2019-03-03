@@ -31,9 +31,9 @@ export class ServeoTransfer {
       body.append(key, (bodyObject as {[x: string]: any})[key]);
     });
 
-    await fetch(this.requestPath, {
+    return fetch(this.requestPath, {
       method: 'POST',
       body,
-    });
+    }).then(res => res.json());
   }
 }

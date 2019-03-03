@@ -6,14 +6,12 @@ describe('Query', () => {
       ['serveo-subdomain']: 'foo',
     });
 
-    expect(query.hasServeoSubdomain()).toBeTruthy();
+    expect(query.serveoSubdomain).toBe('foo');
   });
 
   test('falsy', () => {
-    const query = new Query({
-      foo: 'foo',
-    });
+    const query = new Query({});
 
-    expect(query.hasServeoSubdomain()).toBeFalsy();
+    expect(query.serveoSubdomain).toBeFalsy();
   });
 });

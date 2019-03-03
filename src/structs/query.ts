@@ -1,7 +1,18 @@
-export class Query {
-  constructor(public query: object) {}
+const serveoSubdomainKey = 'serveo-subdomain';
 
-  hasServeoSubdomain() {
-    return Object.prototype.hasOwnProperty.call(this.query, 'serveo-subdomain');
+export class Query {
+  constructor(
+    public query: {
+      'serveo-subdomain'?: string;
+    },
+  ) {}
+
+  get serveoSubdomain(): string | false {
+    const serveoSubdomain = this.query[serveoSubdomainKey];
+    if (serveoSubdomain !== undefined) {
+      return serveoSubdomain;
+    }
+
+    return false;
   }
 }

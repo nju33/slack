@@ -1,7 +1,7 @@
 import snakecaseKeys from 'snakecase-keys';
 
 export class Exportable {
-  export(snakecaseKey: boolean = true): any {
+  export(snakecaseKey = true): any {
     const json = JSON.parse(JSON.stringify(this));
 
     if (snakecaseKey) {

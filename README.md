@@ -1,5 +1,13 @@
 # @nju33/slack
 
+[![github](https://badgen.net/badge//nju33,slack/000?icon=github&list=1)](https://github.com/nju33/slack)
+[![npm:version](https://badgen.net/npm/v/@nju33/slack?icon=npm&label=)](https://www.npmjs.com/package/@nju33/slack)
+[![ci:status](https://badgen.net/circleci/github/nju33/slack)](https://circleci.com/gh/nju33/slack)
+[![document:typedoc](https://badgen.net/badge/document/typedoc/9602ff)](https://nju33--slack.netlify.com/)
+[![license](https://badgen.net/npm/license/vwxy)](https://github.com/nju33/vwxy/blob/master/LICENSE)
+[![code style: prettier](https://badgen.net/badge//prettier/ff69b3?label=code%20style)](https://github.com/prettier/prettier)
+[![typescript](https://badgen.net/badge/lang/typescript/0376c6)](https://www.typescriptlang.org/)
+
 ## Install
 
 ```bash

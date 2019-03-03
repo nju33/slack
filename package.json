@@ -17,11 +17,11 @@
   "scripts": {
     "prepare": "yarn build",
     "test": "jest",
-    "build.main": "tsc -P tsconfig.main.json",
-    "build.module": "tsc -P tsconfig.module.json",
-    "build.types": "tsc -P tsconfig.types.json --emitDeclarationOnly",
-    "build.doc": "yarn docz build -d docs --base /react-dou/",
-    "build": "yarn build.main && yarn build.module && yarn build.types"
+    "typedoc.build": "typedoc --theme minimal --out docs src/index.ts --ignoreCompilerErrors",
+    "build:main": "tsc -P tsconfig.main.json",
+    "build:module": "tsc -P tsconfig.module.json",
+    "build:types": "tsc -P tsconfig.types.json --emitDeclarationOnly",
+    "build": "yarn build:main && yarn build:module && yarn build:types"
   },
   "contributors": [
     "nju33 <nju33.ki@gmail.com>",
@@ -54,6 +54,7 @@
     "ts-node": "8.0.2",
     "tsconfig-paths": "3.8.0",
     "tslint": "5.13.1",
+    "typedoc": "^0.14.2",
     "typescript": "3.3.3333"
   },
   "dependencies": {

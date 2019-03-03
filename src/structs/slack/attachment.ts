@@ -1,7 +1,7 @@
 import {AttachmentField} from './attachment-field';
 import {ActionButton} from './action-button';
 import {ActionSelect} from './action-select';
-import {OptionLabel} from '../type-aliases';
+import {OptionLabel} from '../../type-aliases';
 
 type ActionElement<P extends OptionLabel> = ActionButton | ActionSelect<P>;
 

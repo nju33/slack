@@ -1,4 +1,4 @@
-import {DialogTextElement, Dialog} from '../structs';
+import {DialogTextElement, Dialog} from '../structs/slack';
 
 export const useTextElement = (dialog: Dialog) => (
   label: string,

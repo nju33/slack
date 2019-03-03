@@ -1,5 +1,5 @@
-import {ActionConfirm} from './../structs/action-confirm';
-import {ActionButton} from '../structs';
+import {ActionConfirm} from '../structs/slack/action-confirm';
+import {ActionButton} from '../structs/slack';
 
 export const useConfirm = (button: ActionButton) => (text: string) => {
   const confirm = new ActionConfirm(text);

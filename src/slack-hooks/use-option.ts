@@ -3,7 +3,7 @@ import {
   Option,
   OptionGroup,
   DialogSelectElement,
-} from '../structs';
+} from '../structs/slack';
 import {OptionLabel} from '../type-aliases';
 
 export const useOption = <P extends OptionLabel>(

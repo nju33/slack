@@ -1,4 +1,4 @@
-import {Attachment, Chat} from '../structs';
+import {Attachment, Chat} from '../structs/slack';
 import {useField} from './use-field';
 import {useButton} from './use-button';
 import {useSelect} from './use-select';

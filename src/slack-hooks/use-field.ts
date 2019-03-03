@@ -1,4 +1,4 @@
-import {Attachment, AttachmentField} from '../structs';
+import {Attachment, AttachmentField} from '../structs/slack';
 
 export const useField = (attachment: Attachment) => (
   title: string,

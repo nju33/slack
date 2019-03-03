@@ -1,5 +1,5 @@
 import {DialogElement} from './dialog-element';
-import {DialogElementType, DialogElementSubtype} from '../type-aliases';
+import {DialogElementType, DialogElementSubtype} from '../../type-aliases';
 
 export abstract class DialogInput extends DialogElement {
   abstract type: DialogElementType;

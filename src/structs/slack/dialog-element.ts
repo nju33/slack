@@ -1,4 +1,4 @@
-import {DialogElementType} from '../type-aliases';
+import {DialogElementType} from '../../type-aliases';
 
 export abstract class DialogElement {
   abstract type: DialogElementType;

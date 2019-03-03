@@ -1,4 +1,4 @@
-import {Users} from '../structs/users';
+import {Users} from '../structs/slack/users';
 
 type UsersType = 'profile';
 

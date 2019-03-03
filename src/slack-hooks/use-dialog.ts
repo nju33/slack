@@ -1,4 +1,4 @@
-import {Dialog} from '../structs';
+import {Dialog} from '../structs/slack';
 import {useTextElement} from './use-text-element';
 import {useTextareaElement} from './use-textarea-element';
 import {useSelectElement} from './use-select-element';

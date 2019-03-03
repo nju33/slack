@@ -1,4 +1,4 @@
-import {DialogTextareaElement, Dialog} from '../structs';
+import {DialogTextareaElement, Dialog} from '../structs/slack';
 
 export const useTextareaElement = (dialog: Dialog) => (
   label: string,

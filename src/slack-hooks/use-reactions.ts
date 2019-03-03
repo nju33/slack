@@ -1,5 +1,5 @@
 import {ReactionsAPIType} from './../type-aliases';
-import {Reactions} from '../structs';
+import {Reactions} from '../structs/slack';
 
 // tslint:disable-next-line:no-namespace
 namespace UseReactions {

@@ -1,4 +1,4 @@
-import {Attachment} from '../structs';
+import {Attachment} from '../structs/slack';
 
 export const useListener = (attachment: Attachment) => (
   type: string,

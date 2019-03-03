@@ -1,4 +1,4 @@
-import {Chat} from '../structs';
+import {Chat} from '../structs/slack';
 import {useAttachment} from './use-attachment';
 
 describe('useAttachment', () => {

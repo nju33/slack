@@ -1,6 +1,6 @@
 import {useAttachment} from './use-attachment';
 import {ChatAPIType} from './../type-aliases';
-import {Chat} from '../structs';
+import {Chat} from '../structs/slack';
 
 // tslint:disable-next-line:no-namespace
 namespace UseChat {

@@ -1,4 +1,4 @@
-import {OptionLabel} from '../type-aliases';
+import {OptionLabel} from '../../type-aliases';
 
 type Text<P> = P extends 'text' ? string : never;
 type Label<P> = P extends 'label' ? string : never;

@@ -6,3 +6,4 @@ export * from './message-action-payload';
 export * from './option-data-source';
 export * from './option-label';
 export * from './reactions-api-type';
+export * from './slash-command-payload';

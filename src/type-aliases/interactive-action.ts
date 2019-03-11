@@ -113,3 +113,15 @@ export interface DialogSubmissionPayload<Submission extends object = object> {
   response_url: string;
   state: string;
 }
+
+export interface DialogCancellationPayload {
+  type: 'dialog_cancellation';
+  token: string;
+  action_ts: string;
+  team: Team;
+  user: User;
+  channel: Channel;
+  callback_id: string;
+  response_url: string;
+  state: string;
+}

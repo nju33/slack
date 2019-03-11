@@ -49,7 +49,7 @@ interface Message {
   ts: string;
 }
 
-export interface MessageActionPayload {
+export interface InteractiveActionBody {
   type: string;
   token: string;
   action_ts: string;
@@ -61,4 +61,42 @@ export interface MessageActionPayload {
   message_ts: string;
   message: Message;
   response_url: string;
+}
+
+export interface InteractiveMessageBody {
+  payload: string;
+}
+
+interface SelectedOption {
+  value: string;
+}
+
+export interface InteractiveMessageButtonAction {
+  name: string;
+  type: string;
+  value: string;
+}
+
+export interface InteractiveMessageSelectAction {
+  name: string;
+  type: string;
+  selected_options: SelectedOption[];
+}
+
+type Action = InteractiveMessageButtonAction | InteractiveMessageSelectAction;
+
+export interface InteractiveMessagePayload<A extends Action = Action> {
+  type: string;
+  actions: A[];
+  callback_id: string;
+  team: Team;
+  channel: Channel;
+  user: User;
+  action_ts: string;
+  message_ts: string;
+  attachment_id: string;
+  token: string;
+  is_app_unfurl: boolean;
+  response_url: string;
+  trigger_id: string;
 }

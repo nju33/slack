@@ -7,6 +7,7 @@ export * from './dialog-select-element';
 export * from './dialog-text-element';
 export * from './dialog-textarea-element';
 export * from './dialog';
+export * from './files';
 export * from './chat';
 export * from './option-group';
 export * from './option';

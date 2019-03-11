@@ -49,8 +49,12 @@ interface Message {
   ts: string;
 }
 
-export interface InteractiveActionBody {
-  type: string;
+export interface InteractiveBody {
+  payload: string;
+}
+
+export interface MessageActionPayload {
+  type: 'message_action';
   token: string;
   action_ts: string;
   team: Team;
@@ -61,10 +65,6 @@ export interface InteractiveActionBody {
   message_ts: string;
   message: Message;
   response_url: string;
-}
-
-export interface InteractiveMessageBody {
-  payload: string;
 }
 
 interface SelectedOption {
@@ -86,7 +86,7 @@ export interface InteractiveMessageSelectAction {
 type Action = InteractiveMessageButtonAction | InteractiveMessageSelectAction;
 
 export interface InteractiveMessagePayload<A extends Action = Action> {
-  type: string;
+  type: 'interactive_message';
   actions: A[];
   callback_id: string;
   team: Team;
@@ -105,8 +105,8 @@ interface Submission {
   task: string;
 }
 
-export interface DialogSubmissionBody {
-  type: string;
+export interface DialogSubmissionPayload {
+  type: 'dialog_submission';
   token: string;
   action_ts: string;
   team: Team;

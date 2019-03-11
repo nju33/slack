@@ -12,6 +12,7 @@ describe('useAttachment', () => {
 
   test('returns', () => {
     const {
+      updateText,
       setFallback,
       setColor,
       setPretext,
@@ -20,7 +21,6 @@ describe('useAttachment', () => {
       setAuthorIcon,
       setTitle,
       setTitleLink,
-      setText,
       setImageUrl,
       setThumbUrl,
       setFooter,
@@ -33,6 +33,7 @@ describe('useAttachment', () => {
       useListener,
     } = attachment();
 
+    expect(updateText).toBeInstanceOf(Function);
     expect(setFallback).toBeInstanceOf(Function);
     expect(setColor).toBeInstanceOf(Function);
     expect(setPretext).toBeInstanceOf(Function);
@@ -41,7 +42,6 @@ describe('useAttachment', () => {
     expect(setAuthorIcon).toBeInstanceOf(Function);
     expect(setTitle).toBeInstanceOf(Function);
     expect(setTitleLink).toBeInstanceOf(Function);
-    expect(setText).toBeInstanceOf(Function);
     expect(setImageUrl).toBeInstanceOf(Function);
     expect(setThumbUrl).toBeInstanceOf(Function);
     expect(setFooter).toBeInstanceOf(Function);

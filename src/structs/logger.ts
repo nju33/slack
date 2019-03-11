@@ -29,7 +29,7 @@ export class Logger {
    * Format value for the text param of chat.postMessage
    */
   formatValue(value: unknown): string {
-    let text: string = '';
+    let text = '';
     if (typeof value === 'object' && value !== null) {
       text = JSON.stringify(value);
     } else if (typeof value !== 'string') {
@@ -44,8 +44,7 @@ export class Logger {
   async log(value: unknown): Promise<void> {
     const text = this.formatValue(value);
     const {json, useAttachment} = useChat('postMessage', '');
-    const {setText, setFooter} = useAttachment('');
-    setText('');
+    const {setFooter} = useAttachment('');
     setFooter(text);
 
     await this.postMessage(json());
@@ -54,8 +53,7 @@ export class Logger {
   async info(value: unknown): Promise<void> {
     const text = this.formatValue(value);
     const {json, useAttachment} = useChat('postMessage', '');
-    const {setText, setFooter, setColor} = useAttachment('');
-    setText('');
+    const {setFooter, setColor} = useAttachment('');
     setFooter(text);
     setColor('#005caf');
 
@@ -65,8 +63,7 @@ export class Logger {
   async error(value: unknown): Promise<void> {
     const text = this.formatValue(value);
     const {json, useAttachment} = useChat('postMessage', '');
-    const {setText, setFooter, setColor} = useAttachment('');
-    setText('');
+    const {setFooter, setColor} = useAttachment('');
     setFooter(text);
     setColor('#cb1b45');
 

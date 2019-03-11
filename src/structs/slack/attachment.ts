@@ -26,6 +26,10 @@ export class Attachment<P extends OptionLabel = 'text'> {
 
   constructor(public callbackId: string) {}
 
+  readonly updateText = (cb: (text: string) => string): void => {
+    this.text = cb(this.text as string);
+  };
+
   setFallback = (value: string): void => {
     this.fallback = value;
   };
@@ -56,10 +60,6 @@ export class Attachment<P extends OptionLabel = 'text'> {
 
   setTitleLink = (value: string): void => {
     this.titleLink = value;
-  };
-
-  setText = (value: string): void => {
-    this.text = value;
   };
 
   setImageUrl = (value: string): void => {

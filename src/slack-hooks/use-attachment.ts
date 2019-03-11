@@ -4,12 +4,17 @@ import {useButton} from './use-button';
 import {useSelect} from './use-select';
 import {useListener} from './use-listener';
 
-export const useAttachment = (chat: Chat) => (callbackId: string) => {
+export const useAttachment = (chat: Chat) => (
+  callbackId: string,
+  text = '',
+) => {
   const attachment = new Attachment(callbackId);
 
   chat.addAttachment(attachment);
+  attachment.text = text;
 
   return {
+    updateText: attachment.updateText,
     setFallback: attachment.setFallback,
     setColor: attachment.setColor,
     setPretext: attachment.setPretext,
@@ -18,7 +23,6 @@ export const useAttachment = (chat: Chat) => (callbackId: string) => {
     setAuthorIcon: attachment.setAuthorIcon,
     setTitle: attachment.setTitle,
     setTitleLink: attachment.setTitleLink,
-    setText: attachment.setText,
     setImageUrl: attachment.setImageUrl,
     setThumbUrl: attachment.setThumbUrl,
     setFooter: attachment.setFooter,

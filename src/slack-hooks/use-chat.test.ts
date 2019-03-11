@@ -90,8 +90,7 @@ describe('useMessage', () => {
 
     const {json, useAttachment} = useChat('postMessage', 'text');
     ['foo', 'bar'].map((text, i) => {
-      const {setText} = useAttachment(`callbackId${i + 1}`);
-      setText(text);
+      useAttachment(`callbackId${i + 1}`, text);
     });
 
     expect(json(false)).toMatchObject(answer);
@@ -107,18 +106,14 @@ describe('useMessage', () => {
     const callback2 = jest.fn();
     useListener('interactive_message', 'button', callback)({
       type: 'interactive_message',
-      actions: [
-        {type: 'button'}
-      ],
-      callbackId
+      actions: [{type: 'button'}],
+      callbackId,
     });
 
     useListener('interactive_message', 'button', callback)({
       type: 'interactive_message',
-      actions: [
-        {type: 'button'}
-      ],
-      callbackId: 'callbackXox'
+      actions: [{type: 'button'}],
+      callbackId: 'callbackXox',
     });
 
     expect(callback.mock.calls.length).toBe(1);

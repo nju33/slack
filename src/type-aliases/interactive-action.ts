@@ -100,3 +100,20 @@ export interface InteractiveMessagePayload<A extends Action = Action> {
   response_url: string;
   trigger_id: string;
 }
+
+interface Submission {
+  task: string;
+}
+
+export interface DialogSubmissionBody {
+  type: string;
+  token: string;
+  action_ts: string;
+  team: Team;
+  user: User;
+  channel: Channel;
+  submission: Submission;
+  callback_id: string;
+  response_url: string;
+  state: string;
+}

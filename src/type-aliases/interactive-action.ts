@@ -101,11 +101,7 @@ export interface InteractiveMessagePayload<A extends Action = Action> {
   trigger_id: string;
 }
 
-interface Submission {
-  task: string;
-}
-
-export interface DialogSubmissionPayload {
+export interface DialogSubmissionPayload<Submission extends object = object> {
   type: 'dialog_submission';
   token: string;
   action_ts: string;

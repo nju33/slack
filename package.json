@@ -1,7 +1,7 @@
 {
   "name": "@nju33/slack",
   "description": "",
-  "version": "1.7.4",
+  "version": "1.7.5",
   "license": "MIT",
   "engines": {
     "node": ">=8.10.0",

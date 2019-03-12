@@ -1,11 +1,13 @@
+import {Exportable} from './exportable';
 import {AttachmentField} from './attachment-field';
 import {ActionButton} from './action-button';
 import {ActionSelect} from './action-select';
 import {OptionLabel} from '../../type-aliases';
+import {applyMixins} from './apply-mixins';
 
 type ActionElement<P extends OptionLabel> = ActionButton | ActionSelect<P>;
 
-export class Attachment<P extends OptionLabel = 'text'> {
+export class Attachment<P extends OptionLabel = 'text'> implements Exportable {
   fallback?: string;
   color?: string;
   pretext?: string;
@@ -23,6 +25,8 @@ export class Attachment<P extends OptionLabel = 'text'> {
   ts?: number;
   attachmentType?: string;
   actions?: (ActionElement<P>)[];
+
+  export!: Exportable['export'];
 
   constructor(public callbackId: string) {}
 
@@ -102,3 +106,5 @@ export class Attachment<P extends OptionLabel = 'text'> {
     this.actions.push(actionElement);
   };
 }
+
+applyMixins(Attachment, [Exportable]);

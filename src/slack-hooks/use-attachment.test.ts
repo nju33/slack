@@ -10,50 +10,62 @@ describe('useAttachment', () => {
     chat.setText('text');
   });
 
-  test('returns', () => {
-    const {
-      updateText,
-      setFallback,
-      setColor,
-      setPretext,
-      setAuthorName,
-      setAuthorLink,
-      setAuthorIcon,
-      setTitle,
-      setTitleLink,
-      setImageUrl,
-      setThumbUrl,
-      setFooter,
-      setFooterIcon,
-      setTs,
-      setAttachmentType,
-      useField,
-      useButton,
-      useSelect,
-      useListener,
-    } = attachment();
+  test('returns with Chat', () => {
+    const handler = attachment();
 
-    expect(updateText).toBeInstanceOf(Function);
-    expect(setFallback).toBeInstanceOf(Function);
-    expect(setColor).toBeInstanceOf(Function);
-    expect(setPretext).toBeInstanceOf(Function);
-    expect(setAuthorName).toBeInstanceOf(Function);
-    expect(setAuthorLink).toBeInstanceOf(Function);
-    expect(setAuthorIcon).toBeInstanceOf(Function);
-    expect(setTitle).toBeInstanceOf(Function);
-    expect(setTitleLink).toBeInstanceOf(Function);
-    expect(setImageUrl).toBeInstanceOf(Function);
-    expect(setThumbUrl).toBeInstanceOf(Function);
-    expect(setFooter).toBeInstanceOf(Function);
-    expect(setFooterIcon).toBeInstanceOf(Function);
-    expect(setTs).toBeInstanceOf(Function);
-    expect(setAttachmentType).toBeInstanceOf(Function);
-    expect(useField).toBeInstanceOf(Function);
-    expect(useButton).toBeInstanceOf(Function);
-    expect(useSelect).toBeInstanceOf(Function);
-    expect(useListener).toBeInstanceOf(Function);
+    expect((handler as any).json).not.toBeInstanceOf(Function);
+    expect(handler.updateText).toBeInstanceOf(Function);
+    expect(handler.setFallback).toBeInstanceOf(Function);
+    expect(handler.setColor).toBeInstanceOf(Function);
+    expect(handler.setPretext).toBeInstanceOf(Function);
+    expect(handler.setAuthorName).toBeInstanceOf(Function);
+    expect(handler.setAuthorLink).toBeInstanceOf(Function);
+    expect(handler.setAuthorIcon).toBeInstanceOf(Function);
+    expect(handler.setTitle).toBeInstanceOf(Function);
+    expect(handler.setTitleLink).toBeInstanceOf(Function);
+    expect(handler.setImageUrl).toBeInstanceOf(Function);
+    expect(handler.setThumbUrl).toBeInstanceOf(Function);
+    expect(handler.setFooter).toBeInstanceOf(Function);
+    expect(handler.setFooterIcon).toBeInstanceOf(Function);
+    expect(handler.setTs).toBeInstanceOf(Function);
+    expect(handler.setAttachmentType).toBeInstanceOf(Function);
+    expect(handler.useField).toBeInstanceOf(Function);
+    expect(handler.useButton).toBeInstanceOf(Function);
+    expect(handler.useSelect).toBeInstanceOf(Function);
+    expect(handler.useListener).toBeInstanceOf(Function);
 
     expect(Array.isArray(chat.attachments)).toBeTruthy();
+  });
+
+  test('returns', () => {
+    const handler = useAttachment('callbackId');
+
+    expect(handler.json).toBeInstanceOf(Function);
+    expect(handler.updateText).toBeInstanceOf(Function);
+    expect(handler.setFallback).toBeInstanceOf(Function);
+    expect(handler.setColor).toBeInstanceOf(Function);
+    expect(handler.setPretext).toBeInstanceOf(Function);
+    expect(handler.setAuthorName).toBeInstanceOf(Function);
+    expect(handler.setAuthorLink).toBeInstanceOf(Function);
+    expect(handler.setAuthorIcon).toBeInstanceOf(Function);
+    expect(handler.setTitle).toBeInstanceOf(Function);
+    expect(handler.setTitleLink).toBeInstanceOf(Function);
+    expect(handler.setImageUrl).toBeInstanceOf(Function);
+    expect(handler.setThumbUrl).toBeInstanceOf(Function);
+    expect(handler.setFooter).toBeInstanceOf(Function);
+    expect(handler.setFooterIcon).toBeInstanceOf(Function);
+    expect(handler.setTs).toBeInstanceOf(Function);
+    expect(handler.setAttachmentType).toBeInstanceOf(Function);
+    expect(handler.useField).toBeInstanceOf(Function);
+    expect(handler.useButton).toBeInstanceOf(Function);
+    expect(handler.useSelect).toBeInstanceOf(Function);
+    expect(handler.useListener).toBeInstanceOf(Function);
+
+    handler.updateText(() => 'updated text');
+    expect(handler.json(false)).toMatchObject({
+      callbackId: 'callbackId',
+      text: 'updated text'
+    });
   });
 
   test('build actions', () => {
@@ -67,7 +79,7 @@ describe('useAttachment', () => {
             type: 'button',
             name: 'name1',
             text: 'text1',
-            value: 'value1',
+            value: 'value1'
           },
           {
             type: 'select',
@@ -75,19 +87,19 @@ describe('useAttachment', () => {
             text: 'text2',
             selectedOptions: [
               {
-                value: 1,
-              },
+                value: 1
+              }
             ],
             options: [
               {
                 text: 'label1',
-                value: 'value1',
+                value: 'value1'
               },
               {
                 text: 'label2',
-                value: 'value2',
-              },
-            ],
+                value: 'value2'
+              }
+            ]
           },
           {
             type: 'select',
@@ -99,37 +111,37 @@ describe('useAttachment', () => {
                 options: [
                   {
                     text: 'label1-1',
-                    value: 'value1-1',
+                    value: 'value1-1'
                   },
                   {
                     text: 'label1-2',
-                    value: 'value1-2',
-                  },
-                ],
+                    value: 'value1-2'
+                  }
+                ]
               },
               {
                 text: 'label2',
                 options: [
                   {
                     text: 'label2-1',
-                    value: 'value2-1',
+                    value: 'value2-1'
                   },
                   {
                     text: 'label2-2',
-                    value: 'value2-2',
-                  },
-                ],
-              },
-            ],
+                    value: 'value2-2'
+                  }
+                ]
+              }
+            ]
           },
           {
             type: 'select',
             name: 'name4',
             text: 'text4',
-            dataSource: 'users',
-          },
-        ],
-      },
+            dataSource: 'users'
+          }
+        ]
+      }
     ];
 
     const a0: any = attachments[0].actions[0];

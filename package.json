@@ -55,7 +55,7 @@
     "tsconfig-paths": "3.8.0",
     "tslint": "5.14.0",
     "typedoc": "0.14.2",
-    "typescript": "3.3.3333"
+    "typescript": "3.3.4000"
   },
   "dependencies": {
     "node-fetch": "^2.3.0",

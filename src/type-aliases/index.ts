@@ -2,6 +2,7 @@ export * from './button-style';
 export * from './chat-api-type';
 export * from './dialog-element-type';
 export * from './dialog-element-subtype';
+export * from './event-subscription';
 export * from './interactive-action';
 export * from './option-data-source';
 export * from './option-label';

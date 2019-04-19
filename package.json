@@ -51,7 +51,7 @@
     "prettier": "1.17.0",
     "renovate-config-nju33": "0.0.1",
     "ts-jest": "24.0.2",
-    "ts-node": "8.0.3",
+    "ts-node": "8.1.0",
     "tsconfig-paths": "3.8.0",
     "tslint": "5.15.0",
     "typedoc": "0.14.2",

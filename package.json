@@ -43,7 +43,7 @@
     "@nju33/tslint": "0.0.25",
     "@types/jest": "24.0.12",
     "@types/nock": "9.3.1",
-    "@types/node": "11.13.8",
+    "@types/node": "11.13.9",
     "@types/node-fetch": "2.3.3",
     "@types/snakecase-keys": "2.1.0",
     "jest": "24.7.1",

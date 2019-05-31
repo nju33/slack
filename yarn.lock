@@ -484,10 +484,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.9.6.tgz#c632bbcc780a1349673a6e2e9b9dfa8c369d3c74"
   integrity sha512-4hS2K4gwo9/aXIcoYxCtHpdgd8XUeDmo1siRCAH3RziXB65JlPqUFMtfy9VPj+og7dp3w1TFjGwYga4e0m9GwA==
 
-"@types/node@11.13.11":
-  version "11.13.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.11.tgz#65766752cbbe198ff353ea861a23b6484cf33df4"
-  integrity sha512-blLeR+KIy26km1OU8yTLUlSyVCOvT6+wPq/77tIA+uSHHa4yYQosn+bbaJqPtWId0wjVClUtD7aXzDbZeKWqig==
+"@types/node@11.13.13":
+  version "11.13.13"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.13.tgz#a3d2a8a908ce322f24f0f8c88160b44c7dd5c452"
+  integrity sha512-GFWH7e4Q/OGLAO545bupVju+nE1YtLSwYAdLfSzAXnTPqoqKoXCOEtB7Cluvg9B/h2nGLhyzCDyCInYvrOE2nw==
 
 "@types/shelljs@^0.8.0":
   version "0.8.3"

@@ -41,7 +41,7 @@
     "@geekcojp/tslint-config": "0.2.1",
     "@nju33/prettier": "0.0.26",
     "@nju33/tslint": "0.0.26",
-    "@types/jest": "24.0.20",
+    "@types/jest": "24.0.21",
     "@types/nock": "9.3.1",
     "@types/node": "11.15.0",
     "@types/node-fetch": "2.5.2",

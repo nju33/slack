@@ -454,10 +454,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.9.6.tgz#c632bbcc780a1349673a6e2e9b9dfa8c369d3c74"
   integrity sha512-4hS2K4gwo9/aXIcoYxCtHpdgd8XUeDmo1siRCAH3RziXB65JlPqUFMtfy9VPj+og7dp3w1TFjGwYga4e0m9GwA==
 
-"@types/node@11.15.8":
-  version "11.15.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.15.8.tgz#c3a1ac3f65a9570f9165722948caac8a4953c9d0"
-  integrity sha512-D8rGbTabqe6PA14bmSTw4WIPLJkCb7eL7MlWCV4kv0LrIJzMyPjveeIc3kr8GsLt2Tc8cmkpmId6Gis2zPYclg==
+"@types/node@11.15.9":
+  version "11.15.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.15.9.tgz#656b2f61ebe6af278769dfc24e6ab00528a373eb"
+  integrity sha512-NcOiyA/gxMAounNa4IPm/e13kYqU48onEarMnbLzz3ynEdlxFKYFoBbMBSefAHJR77r9MCtD88J0Z2TVtNsBbw==
 
 "@types/snakecase-keys@2.1.0":
   version "2.1.0"

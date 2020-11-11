@@ -47,7 +47,7 @@
     "@types/node-fetch": "2.5.7",
     "@types/snakecase-keys": "2.1.0",
     "jest": "24.9.0",
-    "nock": "10.0.6",
+    "nock": "13.0.5",
     "prettier": "1.19.1",
     "renovate-config-nju33": "0.0.1",
     "ts-jest": "24.3.0",
